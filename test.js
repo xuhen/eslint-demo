@@ -4,4 +4,4 @@ function sum(x,y) {
 
 sum(20,30)
 
-console.log("hello")
+console.log("hello");
