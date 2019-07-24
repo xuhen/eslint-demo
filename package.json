@@ -5,7 +5,8 @@
   "main": "test.js",
   "scripts": {
     "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "pre-lint": "node check.js"
   },
   "keywords": [],
   "author": "Edward.xu <edward.xu@qunar.com>",
