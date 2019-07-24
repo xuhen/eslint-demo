@@ -1,7 +1,7 @@
 function sum(x,y) {
-  return x + z;
+    return x + y;
 }
 
-sum(20,30)
+sum(20,30);
 
 console.log("hello");

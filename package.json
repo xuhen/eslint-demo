@@ -5,16 +5,19 @@
   "main": "test.js",
   "scripts": {
     "lint": "eslint .",
-    "lint:fix": "eslint --fix "
+    "lint:fix": "eslint --fix ."
   },
   "keywords": [],
   "author": "Edward.xu <edward.xu@qunar.com>",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^6.1.0",
+    "husky": "^3.0.1",
     "pre-commit": "^1.2.2"
   },
-  "pre-commit": [
-    "lint"
-  ]
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  }
 }
