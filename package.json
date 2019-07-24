@@ -1,0 +1,20 @@
+{
+  "name": "eslint-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix "
+  },
+  "keywords": [],
+  "author": "Edward.xu <edward.xu@qunar.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "pre-commit": "^1.2.2"
+  },
+  "pre-commit": [
+    "lint"
+  ]
+}
