@@ -14,8 +14,7 @@ function getErrorLevel(number) {
     return "undefined";
 }
 let pass = 0;
-exec("git diff --cached --name-only | grep .js$", function(error, stdout) {
-    console.log(error);
+exec("git diff HEAD --name-only | grep .js$", function(error, stdout) {
     if (stdout.length) {
         const array = stdout.split("\n");
         array.pop();
