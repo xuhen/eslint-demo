@@ -1,7 +1,9 @@
 // check.js
 const exec = require("child_process").exec;
 const CLIEngine = require("eslint").CLIEngine;
-const cli = new CLIEngine({});
+const cli = new CLIEngine({
+    fix: true
+});
 
 function getErrorLevel(number) {
     switch (number) {
@@ -18,10 +20,12 @@ exec("git diff HEAD --name-only | grep .js$", function(error, stdout) {
     if (stdout.length) {
         const array = stdout.split("\n");
         array.pop();
-        const results = cli.executeOnFiles(array).results;
+        const report = cli.executeOnFiles(array);
+
+
         let errorCount = 0;
         let warningCount = 0;
-        results.forEach((result) => {
+        report.results && report.results.forEach((result) => {
             errorCount += result.errorCount;
             warningCount += result.warningCount;
             if (result.messages.length > 0) {
@@ -34,6 +38,8 @@ exec("git diff HEAD --name-only | grep .js$", function(error, stdout) {
                 });
             }
         });
+
+        CLIEngine.outputFixes(report);
         if (warningCount > 0 || errorCount > 0) {
             console.log(`\n   ${errorCount + warningCount} problems (${errorCount} ${"errors"} ${warningCount} warnings)`);
         }
